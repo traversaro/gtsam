@@ -11,8 +11,8 @@
 
 /**
  * @file HybridEliminationTree.cpp
- * @date December 2021
- * @author Frank Dellaert
+ * @date Mar 11, 2022
+ * @author Fan Jiang
  */
 
 #include <gtsam/hybrid/HybridEliminationTree.h>
@@ -20,20 +20,18 @@
 
 namespace gtsam {
 
-// TODO(dellaert): unclear why we subclass EliminationTree at all.
-
 // Instantiate base class
-template class EliminationTree<HybridBayesNet, GaussianHybridFactorGraph>;
+template class EliminationTree<HybridBayesNet, HybridGaussianFactorGraph>;
 
 /* ************************************************************************* */
 HybridEliminationTree::HybridEliminationTree(
-    const GaussianHybridFactorGraph& factorGraph,
+    const HybridGaussianFactorGraph& factorGraph,
     const VariableIndex& structure, const Ordering& order)
     : Base(factorGraph, structure, order) {}
 
 /* ************************************************************************* */
 HybridEliminationTree::HybridEliminationTree(
-    const GaussianHybridFactorGraph& factorGraph, const Ordering& order)
+    const HybridGaussianFactorGraph& factorGraph, const Ordering& order)
     : Base(factorGraph, order) {}
 
 /* ************************************************************************* */
